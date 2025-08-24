@@ -291,3 +291,4 @@ MIT
 - [2025-12-08 02:27:44] Add unit tests
 - [2026-03-16 02:27:44] Add validation
 - [2026-04-10 02:27:44] Improve error handling
+- [2025-08-25 02:27:44] Add API endpoints
