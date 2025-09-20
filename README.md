@@ -313,3 +313,4 @@ MIT
 - [2026-03-16 02:27:44] Fix typos
 - [2025-12-31 02:27:44] Update README
 - [2025-10-27 02:27:44] Improve performance
+- [2025-09-21 02:27:44] Improve error handling
