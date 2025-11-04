@@ -260,3 +260,4 @@ MIT
 - [2026-04-11 02:27:44] Add new features
 - [2025-10-26 02:27:44] Fix bugs and issues
 - [2025-12-21 02:27:44] Improve performance
+- [2025-11-05 02:27:44] Add API endpoints
