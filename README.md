@@ -389,3 +389,4 @@ MIT
 - [2025-11-02 02:27:44] Update dependencies
 - [2025-08-09 02:27:44] Improve accessibility
 - [2026-04-26 02:27:44] Update README
+- [2025-12-05 02:27:44] Add API endpoints
