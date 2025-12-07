@@ -288,3 +288,4 @@ MIT
 - [2025-11-21 02:27:44] Add unit tests
 - [2025-08-21 02:27:44] Refactor code structure
 - [2025-08-06 02:27:44] Improve UI/UX
+- [2025-12-08 02:27:44] Add unit tests
