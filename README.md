@@ -354,3 +354,4 @@ MIT
 - [2025-10-27 02:27:44] Improve error handling
 - [2026-03-01 02:27:44] Clean up code
 - [2026-01-15 02:27:44] Refactor code structure
+- [2026-01-02 02:27:44] Add API endpoints
