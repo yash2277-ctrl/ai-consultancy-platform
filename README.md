@@ -339,3 +339,4 @@ MIT
 - [2026-04-24 02:27:44] Update configuration
 - [2026-07-24 02:27:44] Improve accessibility
 - [2026-01-22 02:27:44] Improve accessibility
+- [2026-03-18 02:27:44] Add API endpoints
