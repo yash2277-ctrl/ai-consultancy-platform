@@ -197,3 +197,5 @@ MIT
 - **2026-08-05**: docs: Update README with installation guide
 
 - **2026-08-05**: docs: Add deployment guide
+
+- **2026-05-08**: Improve UI/UX
