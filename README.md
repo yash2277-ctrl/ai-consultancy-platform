@@ -201,3 +201,5 @@ MIT
 - **2026-05-08**: Improve UI/UX
 
 - **2026-05-09**: Add new features
+
+- **2026-05-11**: Update documentation
