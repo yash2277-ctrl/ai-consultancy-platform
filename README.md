@@ -414,3 +414,4 @@ MIT
 - [2025-10-10 02:27:44] Improve performance
 - [2025-12-09 02:27:44] Improve logging
 - [2026-06-24 02:27:44] Fix bugs and issues
+- [2026-05-16 02:27:44] Add API endpoints
