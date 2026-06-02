@@ -209,3 +209,5 @@ MIT
 - **2026-05-19**: Refactor code
 
 - **2026-05-26**: Improve error handling
+
+- **2026-06-03**: Add tests
