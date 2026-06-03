@@ -213,3 +213,5 @@ MIT
 - **2026-06-03**: Add tests
 
 - **2026-06-04**: Update dependencies
+
+- **2026-06-04**: Add new features
