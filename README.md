@@ -211,3 +211,5 @@ MIT
 - **2026-05-26**: Improve error handling
 
 - **2026-06-03**: Add tests
+
+- **2026-06-04**: Update dependencies
