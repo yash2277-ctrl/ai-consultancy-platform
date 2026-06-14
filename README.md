@@ -217,3 +217,5 @@ MIT
 - **2026-06-04**: Add new features
 
 - **2026-06-08**: Fix bugs
+
+- **2026-06-15**: Update documentation
