@@ -223,3 +223,5 @@ MIT
 - **2026-06-23**: Update README
 
 - **2026-06-29**: Improve UI/UX
+
+- **2026-06-29**: Add new features
