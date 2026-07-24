@@ -239,3 +239,5 @@ MIT
 - **2026-07-21**: Improve UI/UX
 
 - **2026-07-23**: Add new features
+
+- **2026-07-25**: Improve performance
