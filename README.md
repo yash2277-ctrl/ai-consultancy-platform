@@ -241,3 +241,5 @@ MIT
 - **2026-07-23**: Add new features
 
 - **2026-07-25**: Improve performance
+
+- **2026-08-03**: Add new features
