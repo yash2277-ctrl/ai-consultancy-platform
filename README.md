@@ -174,3 +174,8 @@ Once the backend is running, visit:
 ## License
 
 MIT
+
+
+## Recent Updates
+
+- **2026-08-05**: docs: Update README with installation guide
