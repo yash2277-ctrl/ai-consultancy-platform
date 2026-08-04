@@ -179,3 +179,5 @@ MIT
 ## Recent Updates
 
 - **2026-08-05**: docs: Update README with installation guide
+
+- **2026-08-05**: docs: Add deployment guide
