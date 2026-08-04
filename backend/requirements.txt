@@ -1,0 +1,39 @@
+# ═══════════════════════════════════════════════════════════════
+# AI Consultancy Platform — Python Dependencies
+# ═══════════════════════════════════════════════════════════════
+
+# ── Web Framework ──
+fastapi
+uvicorn[standard]
+python-multipart
+
+# ── Database ──
+sqlalchemy[asyncio]
+aiosqlite
+alembic
+
+# ── Auth & Security ──
+passlib[bcrypt]
+python-jose[cryptography]
+pydantic[email]
+pydantic-settings
+
+# ── AI / LLM ──
+openai
+langchain
+langchain-openai
+langchain-community
+
+# ── Vector Store ──
+chromadb
+
+# ── Document Parsing ──
+PyMuPDF
+python-docx
+pandas
+openpyxl
+
+# ── Utilities ──
+httpx
+python-dotenv
+aiofiles

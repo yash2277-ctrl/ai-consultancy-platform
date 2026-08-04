@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NexusAI — AI Management Consultancy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+    <!-- ════════════════════════ LOADING SCREEN ════════════════════════ -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loader-content">
+            <div class="logo-anim">
+                <div class="pulse-ring"></div>
+                <i class="fas fa-brain"></i>
+            </div>
+            <h2>NexusAI</h2>
+            <p>Initialising AI Consultancy Engine…</p>
+        </div>
+    </div>
+
+    <!-- ════════════════════════ AUTH SCREEN ════════════════════════ -->
+    <div id="auth-screen" class="screen auth-screen hidden">
+        <div class="auth-left">
+            <div class="auth-brand">
+                <div class="brand-icon"><i class="fas fa-brain"></i></div>
+                <h1>Nexus<span>AI</span></h1>
+                <p class="tagline">The $900B consultancy industry,<br/>reimagined with artificial intelligence.</p>
+            </div>
+            <div class="auth-features">
+                <div class="feature-item"><i class="fas fa-chart-line"></i><span>Financial Deep-Dive Analysis</span></div>
+                <div class="feature-item"><i class="fas fa-chess"></i><span>Market Strategy Intelligence</span></div>
+                <div class="feature-item"><i class="fas fa-users-cog"></i><span>Multi-Agent AI Consultants</span></div>
+                <div class="feature-item"><i class="fas fa-file-alt"></i><span>Executive-Grade Reports</span></div>
+            </div>
+        </div>
+        <div class="auth-right">
+            <div class="auth-card">
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-tab="login">Sign In</button>
+                    <button class="auth-tab" data-tab="register">Create Account</button>
+                </div>
+
+                <!-- Login Form -->
+                <form id="login-form" class="auth-form">
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="login-email" placeholder="Email address" required />
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="login-password" placeholder="Password" required />
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">
+                        <span>Sign In</span><i class="fas fa-arrow-right"></i>
+                    </button>
+                </form>
+
+                <!-- Register Form -->
+                <form id="register-form" class="auth-form hidden">
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="reg-name" placeholder="Full name" required />
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="reg-email" placeholder="Email address" required />
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-building"></i>
+                        <input type="text" id="reg-company" placeholder="Company (optional)" />
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="reg-password" placeholder="Password (8+ chars)" required minlength="8" />
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">
+                        <span>Create Account</span><i class="fas fa-arrow-right"></i>
+                    </button>
+                </form>
+
+                <div id="auth-error" class="auth-error hidden"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ════════════════════════ MAIN APP ════════════════════════ -->
+    <div id="app-screen" class="screen app-screen hidden">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <div class="brand-icon-sm"><i class="fas fa-brain"></i></div>
+                <span class="brand-text">Nexus<strong>AI</strong></span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-view="dashboard">
+                    <i class="fas fa-th-large"></i><span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-item" data-view="projects">
+                    <i class="fas fa-folder-open"></i><span>Projects</span>
+                </a>
+                <a href="#" class="nav-item" data-view="consult">
+                    <i class="fas fa-robot"></i><span>AI Consult</span>
+                </a>
+                <a href="#" class="nav-item" data-view="reports">
+                    <i class="fas fa-chart-line"></i><span>Reports</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar"><i class="fas fa-user"></i></div>
+                    <div class="user-details">
+                        <span id="user-name">User</span>
+                        <span id="user-email" class="user-email-text">user@email.com</span>
+                    </div>
+                </div>
+                <button id="logout-btn" class="btn-icon" title="Sign Out">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <header class="topbar">
+                <button id="sidebar-toggle" class="btn-icon mobile-only">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="topbar-title">
+                    <h2 id="view-title">Dashboard</h2>
+                    <span id="view-subtitle" class="subtitle">Overview of your AI consultancy workspace</span>
+                </div>
+                <div class="topbar-actions">
+                    <button id="theme-toggle" class="btn-icon" title="Toggle Theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- ────── Dashboard View ────── -->
+            <section id="view-dashboard" class="view active">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon bg-blue"><i class="fas fa-folder-open"></i></div>
+                        <div class="stat-info">
+                            <span class="stat-value" id="stat-projects">0</span>
+                            <span class="stat-label">Projects</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon bg-green"><i class="fas fa-file-upload"></i></div>
+                        <div class="stat-info">
+                            <span class="stat-value" id="stat-files">0</span>
+                            <span class="stat-label">Files Uploaded</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon bg-purple"><i class="fas fa-robot"></i></div>
+                        <div class="stat-info">
+                            <span class="stat-value" id="stat-reports">0</span>
+                            <span class="stat-label">AI Reports</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon bg-orange"><i class="fas fa-check-circle"></i></div>
+                        <div class="stat-info">
+                            <span class="stat-value" id="stat-completed">0</span>
+                            <span class="stat-label">Completed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-clock"></i> Recent Projects</h3>
+                            <button class="btn btn-sm" onclick="app.switchView('projects')">View All</button>
+                        </div>
+                        <div id="recent-projects" class="card-body">
+                            <div class="empty-state">
+                                <i class="fas fa-folder-plus"></i>
+                                <p>No projects yet. Create one to get started!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-brain"></i> Latest Reports</h3>
+                            <button class="btn btn-sm" onclick="app.switchView('reports')">View All</button>
+                        </div>
+                        <div id="recent-reports" class="card-body">
+                            <div class="empty-state">
+                                <i class="fas fa-chart-pie"></i>
+                                <p>No reports generated yet.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ────── Projects View ────── -->
+            <section id="view-projects" class="view">
+                <div class="view-actions">
+                    <button class="btn btn-primary" id="btn-new-project">
+                        <i class="fas fa-plus"></i> New Project
+                    </button>
+                </div>
+                <div id="projects-list" class="projects-grid">
+                    <div class="empty-state-lg">
+                        <i class="fas fa-folder-open"></i>
+                        <h3>No projects yet</h3>
+                        <p>Create your first project to start uploading documents and generating AI consulting reports.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ────── Project Detail (dynamic) ────── -->
+            <section id="view-project-detail" class="view">
+                <button class="btn btn-ghost mb-4" onclick="app.switchView('projects')">
+                    <i class="fas fa-arrow-left"></i> Back to Projects
+                </button>
+                <div class="project-header-card">
+                    <div>
+                        <h2 id="detail-project-name">Project Name</h2>
+                        <p id="detail-project-desc" class="text-muted">Description</p>
+                        <span class="badge" id="detail-project-industry">Industry</span>
+                    </div>
+                    <div class="project-header-actions">
+                        <button class="btn btn-primary" id="btn-upload-file">
+                            <i class="fas fa-cloud-upload-alt"></i> Upload File
+                        </button>
+                        <button class="btn btn-accent" id="btn-start-consult">
+                            <i class="fas fa-robot"></i> Start AI Consultation
+                        </button>
+                        <button class="btn btn-danger" id="btn-delete-project" title="Delete Project">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Files Section -->
+                <div class="card mt-4">
+                    <div class="card-header"><h3><i class="fas fa-file-alt"></i> Uploaded Files</h3></div>
+                    <div id="project-files" class="card-body">
+                        <div class="empty-state"><i class="fas fa-cloud-upload-alt"></i><p>No files uploaded yet.</p></div>
+                    </div>
+                </div>
+
+                <!-- Reports Section -->
+                <div class="card mt-4">
+                    <div class="card-header"><h3><i class="fas fa-chart-bar"></i> Consulting Reports</h3></div>
+                    <div id="project-reports" class="card-body">
+                        <div class="empty-state"><i class="fas fa-chart-line"></i><p>No reports generated yet.</p></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ────── AI Consult View ────── -->
+            <section id="view-consult" class="view">
+                <div class="consult-container">
+                    <div class="card consult-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-robot"></i> Start New AI Consultation</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label>Select Project</label>
+                                <select id="consult-project" class="form-select">
+                                    <option value="">-- Select a project --</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Goal Statement</label>
+                                <textarea id="consult-goal" class="form-textarea" rows="5"
+                                    placeholder="Describe the business objective you want our AI consultants to analyse. Be specific about what decisions you need to make, what markets you're exploring, or what financial questions you need answered."></textarea>
+                                <span class="form-hint">Minimum 10 characters. The more detail you provide, the better the analysis.</span>
+                            </div>
+                            <button id="btn-run-consult" class="btn btn-primary btn-lg btn-full">
+                                <i class="fas fa-paper-plane"></i> Launch AI Consultation
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="consult-agents">
+                        <h4>Your AI Consulting Team</h4>
+                        <div class="agent-cards">
+                            <div class="agent-card">
+                                <div class="agent-avatar bg-blue"><i class="fas fa-calculator"></i></div>
+                                <h5>Financial Analyst</h5>
+                                <p>Revenue modelling, cost optimisation, risk assessment, and financial health scoring.</p>
+                            </div>
+                            <div class="agent-card">
+                                <div class="agent-avatar bg-green"><i class="fas fa-chess-knight"></i></div>
+                                <h5>Market Strategist</h5>
+                                <p>Competitive landscape, growth opportunities, market sizing, and positioning strategy.</p>
+                            </div>
+                            <div class="agent-card">
+                                <div class="agent-avatar bg-purple"><i class="fas fa-crown"></i></div>
+                                <h5>Executive Partner</h5>
+                                <p>Synthesises all analyses into actionable strategic recommendations with timelines.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ────── Reports View ────── -->
+            <section id="view-reports" class="view">
+                <div id="all-reports-list">
+                    <div class="empty-state-lg">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>No reports yet</h3>
+                        <p>Start an AI consultation from the Consult tab to generate your first report.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ────── Report Detail View ────── -->
+            <section id="view-report-detail" class="view">
+                <button class="btn btn-ghost mb-4" onclick="app.goBackFromReport()">
+                    <i class="fas fa-arrow-left"></i> Back
+                </button>
+                <div id="report-detail-content">
+                    <!-- Dynamically populated -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- ════════════════════════ MODALS ════════════════════════ -->
+
+    <!-- New Project Modal -->
+    <div id="modal-new-project" class="modal hidden">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Create New Project</h3>
+                <button class="btn-icon modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <form id="form-new-project" class="modal-body">
+                <div class="form-group">
+                    <label>Project Name *</label>
+                    <input type="text" id="np-name" class="form-input" placeholder="e.g. Q4 Market Expansion Strategy" required />
+                </div>
+                <div class="form-group">
+                    <label>Industry</label>
+                    <select id="np-industry" class="form-select">
+                        <option value="">-- Select industry --</option>
+                        <option value="Technology">Technology</option>
+                        <option value="Healthcare">Healthcare</option>
+                        <option value="Finance">Finance & Banking</option>
+                        <option value="Retail">Retail & E-Commerce</option>
+                        <option value="Manufacturing">Manufacturing</option>
+                        <option value="Energy">Energy & Utilities</option>
+                        <option value="Real Estate">Real Estate</option>
+                        <option value="Education">Education</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea id="np-desc" class="form-textarea" rows="3" placeholder="Brief description of the strategic initiative…"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">
+                    <i class="fas fa-plus"></i> Create Project
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Upload File Modal -->
+    <div id="modal-upload" class="modal hidden">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Upload Document</h3>
+                <button class="btn-icon modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="upload-zone" id="upload-zone">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <p>Drag & drop your file here or click to browse</p>
+                    <span class="form-hint">Supports PDF, DOCX, XLSX, CSV — Max 20MB</span>
+                    <input type="file" id="file-input" accept=".pdf,.docx,.csv,.xlsx" hidden />
+                </div>
+                <div id="upload-progress" class="upload-progress hidden">
+                    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+                    <span id="upload-status">Uploading…</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Consult Goal Modal (from project detail) -->
+    <div id="modal-consult" class="modal hidden">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-robot"></i> Start AI Consultation</h3>
+                <button class="btn-icon modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <form id="form-quick-consult" class="modal-body">
+                <div class="form-group">
+                    <label>Goal Statement</label>
+                    <textarea id="qc-goal" class="form-textarea" rows="5"
+                        placeholder="What business question should our AI consultants analyse?"
+                        required minlength="10"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">
+                    <i class="fas fa-paper-plane"></i> Launch Consultation
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
