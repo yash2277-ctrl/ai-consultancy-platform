@@ -1,0 +1,42 @@
+# Environment Variables (SENSITIVE - Never commit!)
+.env
+*.env
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+.venv/
+env/
+ENV/
+
+# Database Files (SENSITIVE - Contains user data!)
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# ChromaDB Vector Store
+chroma_db/
+
+# Upload Files
+uploads/
+backend/uploads/
+
+# Logs
+*.log
+pip_log.txt
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
